@@ -48,7 +48,7 @@ public class JavaLogin extends JFrame {
 	public JavaLogin() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 626, 492);
+		setBounds(100, 100, 630, 500);
 		contentPane = new JPanel();
 		contentPane.setForeground(Color.WHITE);
 		contentPane.setBackground(new Color(0, 139, 139));
@@ -102,7 +102,7 @@ public class JavaLogin extends JFrame {
 		pnlExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(JOptionPane.showConfirmDialog(null,"Are you sure you want to close the application?" ,"Confirmation",JOptionPane.YES_NO_OPTION)== 0) {
+				if(JOptionPane.showConfirmDialog(null,"Are you sure you want to close this application?" ,"Confirmation",JOptionPane.YES_NO_OPTION)== 0) {
 					JavaLogin.this.dispose();
 				}
 			}
