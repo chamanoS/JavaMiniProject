@@ -83,16 +83,6 @@ public class JavaLanding extends JFrame {
 		lblChats.setBounds(24, 0, 57, 41);
 		panel.add(lblChats);
 		
-//		JLabel pnlExit = new JLabel("X");
-//		pnlExit.setForeground(Color.WHITE);
-//		pnlExit.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				if(JOptionPane.showConfirmDialog(null,"Are you sure you want to close this application?" ,"Confirmation",JOptionPane.YES_NO_OPTION)== 0) {
-//					JavaLanding.this.dispose();
-//				}
-//			}
-//		});
 		
 		JLabel lblSearch = new JLabel("");
 		lblSearch.setBounds(460, 0, 40, 41);
