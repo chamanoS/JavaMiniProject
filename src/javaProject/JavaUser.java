@@ -40,12 +40,14 @@ public class JavaUser extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 550);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new LineBorder(new Color(176, 196, 222), 3, true));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
 		panel.setBorder(new LineBorder(new Color(176, 196, 222), 3, true));
 		panel.setBounds(0, 0, 450, 63);
 		contentPane.add(panel);
@@ -67,24 +69,40 @@ public class JavaUser extends JFrame {
 		lblOnline.setBounds(55, 38, 59, 14);
 		panel.add(lblOnline);
 		
-		JLabel lblPhone = new JLabel("");
-		lblPhone.setBounds(277, 24, 46, 20);
-		Image img_chat_1 = new ImageIcon(this.getClass().getResource("/phone-call.png")).getImage();
-		Image scaledUser_C_1 = img_chat_1.getScaledInstance(40, 20, Image.SCALE_SMOOTH);
-		panel.add(lblPhone);
-		lblPhone.setIcon(new ImageIcon(scaledUser_C_1));
+		JLabel lblMainUser = new JLabel("");
+		lblMainUser.setBounds(330, 6, 75, 50);
+		Image img_user = new ImageIcon(this.getClass().getResource("/avt.png")).getImage();
+		Image scaledUser_C_1 = img_user.getScaledInstance(75, 60, Image.SCALE_SMOOTH);
+		panel.add(lblMainUser);
+		lblMainUser.setIcon(new ImageIcon(scaledUser_C_1));
 		
-		JLabel lblVideo = new JLabel("");
-		lblVideo.setBounds(333, 17, 40, 30);
-		Image img_chat_2 = new ImageIcon(this.getClass().getResource("/videox.png")).getImage();
-		Image scaledUser_C_2 = img_chat_2.getScaledInstance(40, 30, Image.SCALE_SMOOTH);
-		panel.add(lblVideo);
-		lblVideo.setIcon(new ImageIcon(scaledUser_C_2));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBorder(new LineBorder(new Color(176, 196, 222), 3, true));
-		panel_1.setBounds(0, 487, 450, 63);
+		panel_1.setBounds(10, 476, 430, 63);
 		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Type Something");
+		lblNewLabel.setForeground(new Color(211, 211, 211));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
+		lblNewLabel.setBackground(new Color(230, 230, 250));
+		lblNewLabel.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
+		lblNewLabel.setBounds(70, 11, 300, 41);
+		panel_1.add(lblNewLabel);
+		
+		JLabel lblMogi = new JLabel("");
+		lblMogi.setBounds(15, 18, 40, 30);
+		Image img_emogi = new ImageIcon(this.getClass().getResource("/imoj.png")).getImage();
+		Image scaledEmogi = img_emogi.getScaledInstance(40, 30, Image.SCALE_SMOOTH);
+		panel_1.add(lblMogi);
+		lblMogi.setIcon(new ImageIcon(scaledEmogi));
+		
+		JLabel lblSend = new JLabel("");
+		lblSend.setBounds(385, 13, 50, 36);
+		Image img_send = new ImageIcon(this.getClass().getResource("/send.png")).getImage();
+		Image scaledSend = img_send.getScaledInstance(40, 30, Image.SCALE_SMOOTH);
+		panel_1.add(lblSend);
+		lblSend.setIcon(new ImageIcon(scaledSend));
 	}
 }
