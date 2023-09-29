@@ -4,6 +4,10 @@ import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -23,10 +27,10 @@ import java.awt.Font;
 public class JavaRegister extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtUsername;
-	private JTextField textEmail;
-	private JTextField txtPassword;
-	private JTextField txtConfirmPsw;
+	private JTextField txtFirstname;
+	private JTextField textUsername;
+	private JTextField txtEmail;
+	private JTextField txtPsw;
 
 	/**
 	 * Launch the application.
@@ -70,13 +74,13 @@ public class JavaRegister extends JFrame {
 		contentPane.add(username);
 		username.setLayout(null);
 		
-		txtUsername = new JTextField();
-		txtUsername.setBorder(null);
-		txtUsername.setFont(new Font("Arial", Font.PLAIN, 12));
-		txtUsername.setText("Username");
-		txtUsername.setBounds(10, 11, 200, 15);
-		username.add(txtUsername);
-		txtUsername.setColumns(10);
+		txtFirstname = new JTextField();
+		txtFirstname.setBorder(null);
+		txtFirstname.setFont(new Font("Arial", Font.PLAIN, 12));
+		txtFirstname.setText("First Name");
+		txtFirstname.setBounds(10, 11, 200, 15);
+		username.add(txtFirstname);
+		txtFirstname.setColumns(10);
 		
 		JPanel email = new JPanel();
 		email.setLayout(null);
@@ -84,13 +88,13 @@ public class JavaRegister extends JFrame {
 		email.setBounds(66, 164, 250, 35);
 		contentPane.add(email);
 		
-		textEmail = new JTextField();
-		textEmail.setText("Email");
-		textEmail.setFont(new Font("Arial", Font.PLAIN, 12));
-		textEmail.setColumns(10);
-		textEmail.setBorder(null);
-		textEmail.setBounds(10, 11, 200, 15);
-		email.add(textEmail);
+		textUsername = new JTextField();
+		textUsername.setText("Username");
+		textUsername.setFont(new Font("Arial", Font.PLAIN, 12));
+		textUsername.setColumns(10);
+		textUsername.setBorder(null);
+		textUsername.setBounds(10, 11, 200, 15);
+		email.add(textUsername);
 		
 		JPanel password = new JPanel();
 		password.setLayout(null);
@@ -98,13 +102,13 @@ public class JavaRegister extends JFrame {
 		password.setBounds(66, 227, 250, 35);
 		contentPane.add(password);
 		
-		txtPassword = new JTextField();
-		txtPassword.setText("Password");
-		txtPassword.setFont(new Font("Arial", Font.PLAIN, 12));
-		txtPassword.setColumns(10);
-		txtPassword.setBorder(null);
-		txtPassword.setBounds(10, 11, 200, 15);
-		password.add(txtPassword);
+		txtEmail = new JTextField();
+		txtEmail.setText("Email");
+		txtEmail.setFont(new Font("Arial", Font.PLAIN, 12));
+		txtEmail.setColumns(10);
+		txtEmail.setBorder(null);
+		txtEmail.setBounds(10, 11, 200, 15);
+		password.add(txtEmail);
 		
 		JPanel confirm = new JPanel();
 		confirm.setLayout(null);
@@ -112,25 +116,13 @@ public class JavaRegister extends JFrame {
 		confirm.setBounds(66, 287, 250, 35);
 		contentPane.add(confirm);
 		
-		txtConfirmPsw = new JTextField();
-		txtConfirmPsw.setText("Confirm Password");
-		txtConfirmPsw.setFont(new Font("Arial", Font.PLAIN, 12));
-		txtConfirmPsw.setColumns(10);
-		txtConfirmPsw.setBorder(null);
-		txtConfirmPsw.setBounds(10, 11, 200, 15);
-		confirm.add(txtConfirmPsw);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.DARK_GRAY);
-		panel.setBounds(66, 346, 250, 50);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel pnlDSignInBtn = new JLabel("Sign In");
-		pnlDSignInBtn.setForeground(Color.WHITE);
-		pnlDSignInBtn.setFont(new Font("Arial", Font.BOLD, 18));
-		pnlDSignInBtn.setBounds(97, 11, 99, 30);
-		panel.add(pnlDSignInBtn);
+		txtPsw = new JTextField();
+		txtPsw.setText("Password");
+		txtPsw.setFont(new Font("Arial", Font.PLAIN, 12));
+		txtPsw.setColumns(10);
+		txtPsw.setBorder(null);
+		txtPsw.setBounds(10, 11, 200, 15);
+		confirm.add(txtPsw);
 		
 		JLabel pnlExit = new JLabel("X");
 		pnlExit.setForeground(Color.WHITE);
@@ -146,6 +138,70 @@ public class JavaRegister extends JFrame {
 		pnlExit.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
 		pnlExit.setBounds(597, 0, 29, 37);
 		contentPane.add(pnlExit);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.DARK_GRAY);
+		panel.setBounds(66, 346, 250, 50);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel pnlDSignInBtn = new JLabel("Sign In");
+		pnlDSignInBtn.setForeground(Color.WHITE);
+		pnlDSignInBtn.setFont(new Font("Arial", Font.BOLD, 18));
+		pnlDSignInBtn.setBounds(97, 11, 99, 30);
+		panel.add(pnlDSignInBtn);
+		
+		// Add a mouse listener to your "Sign In" button
+        pnlDSignInBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // When the "Sign In" button is clicked, perform the database insertion
+                insertUserData();
+            }
+        });
 	
 	}
+	
+	
+    // Method to insert user data into the database
+    private void insertUserData() {
+        String firstName = txtFirstname.getText();
+        String username = textUsername.getText();
+        String email = txtEmail.getText();
+        String password = txtPsw.getText();
+
+        try {
+            // Load the MySQL JDBC driver
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // Replace the following with your actual database connection details
+            String url = "jdbc:mysql://localhost:3306/loginuser";
+            String user = "root";
+            String passwords = "sc7431560IT$";
+
+            // Establish the database connection
+            Connection connection = DriverManager.getConnection(url, user, passwords);
+
+            // Create a prepared statement to insert data
+            String insertQuery = "INSERT INTO users (firstname, username, email, password) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, username);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4, password);
+
+            // Execute the insert query
+            preparedStatement.executeUpdate();
+
+            // Close the database connection
+            preparedStatement.close();
+            connection.close();
+
+            JOptionPane.showMessageDialog(null, "User registered successfully!");
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
+    }
 }
