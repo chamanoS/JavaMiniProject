@@ -27,7 +27,6 @@ public class JavaLanding extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textStory;
-	private JTextField textUser_1;
 	private JTextField textUser_2;
 	private JTextField textUser_4;
 	private JTextField txtConvo;
@@ -62,9 +61,9 @@ public class JavaLanding extends JFrame {
 	public JavaLanding() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 520, 500);
+		setBounds(100, 100, 366, 500);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(143, 188, 143));
+		contentPane.setBackground(new Color(230, 230, 250));
 		contentPane.setBorder(new LineBorder(new Color(169, 169, 169), 3));
 
 		setContentPane(contentPane);
@@ -73,7 +72,7 @@ public class JavaLanding extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
-		panel.setBounds(10, 11, 501, 39);
+		panel.setBounds(10, 11, 349, 39);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -84,14 +83,14 @@ public class JavaLanding extends JFrame {
 		
 		
 		JLabel lblSearch = new JLabel("");
-		lblSearch.setBounds(352, 0, 40, 41);
+		lblSearch.setBounds(178, 0, 40, 41);
 		Image img_search = new ImageIcon(this.getClass().getResource("/search.jpg")).getImage();
 		Image scaledImage = img_search.getScaledInstance(40, 25, Image.SCALE_SMOOTH);
 		panel.add(lblSearch);
 		lblSearch.setIcon(new ImageIcon(scaledImage));
 		
 		JLabel lblSet = new JLabel("");
-		lblSet.setBounds(415, 0, 40, 41);
+		lblSet.setBounds(241, 0, 40, 41);
 		Image img_set = new ImageIcon(this.getClass().getResource("/set.png")).getImage();
 		Image scaledset = img_set.getScaledInstance(40, 25, Image.SCALE_SMOOTH);
 		panel.add(lblSet);
@@ -107,13 +106,13 @@ public class JavaLanding extends JFrame {
 			}
 		});
 		lblClose.setFont(new Font("Segoe UI Black", Font.BOLD, 22));
-		lblClose.setBounds(476, 0, 26, 41);
+		lblClose.setBounds(302, 0, 26, 41);
 		panel.add(lblClose);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBorder(new LineBorder(new Color(192, 192, 192)));
-		panel_1.setBounds(10, 52, 501, 111);
+		panel_1.setBounds(10, 52, 349, 111);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -140,32 +139,19 @@ public class JavaLanding extends JFrame {
 		textStory.setBounds(10, 74, 83, 35);
 		panel_1.add(textStory);
 		textStory.setColumns(10);
-		
-		textUser_1 = new JTextField();
-		textUser_1.setText("Assaf Rud");
-		textUser_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
-		textUser_1.setColumns(10);
-		textUser_1.setBorder(null);
-		textUser_1.setBounds(131, 74, 83, 35);
-		panel_1.add(textUser_1);
-		
-		JLabel lblLogo_1 = new JLabel("");
-		lblLogo_1.setBounds(131, 11, 70, 65);
 		Image img_add_1 = new ImageIcon(this.getClass().getResource("/attr.png")).getImage();
 		Image scaledAdd_1 = img_add_1.getScaledInstance(70, 65, Image.SCALE_SMOOTH);
-		panel_1.add(lblLogo_1);
-		lblLogo_1.setIcon(new ImageIcon(scaledAdd_1));
 		
 		textUser_2 = new JTextField();
 		textUser_2.setText("Shariz Ruby");
 		textUser_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		textUser_2.setColumns(10);
 		textUser_2.setBorder(null);
-		textUser_2.setBounds(243, 74, 94, 35);
+		textUser_2.setBounds(123, 74, 94, 35);
 		panel_1.add(textUser_2);
 		
 		JLabel lblLogo_2 = new JLabel("");
-		lblLogo_2.setBounds(254, 11, 70, 65);
+		lblLogo_2.setBounds(134, 11, 70, 65);
 		Image img_add_2 = new ImageIcon(this.getClass().getResource("/trans2.png")).getImage();
 		Image scaledAdd_2 = img_add_2.getScaledInstance(70, 65, Image.SCALE_SMOOTH);
 		panel_1.add(lblLogo_2);
@@ -176,11 +162,11 @@ public class JavaLanding extends JFrame {
 		textUser_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		textUser_4.setColumns(10);
 		textUser_4.setBorder(null);
-		textUser_4.setBounds(368, 74, 99, 35);
+		textUser_4.setBounds(248, 74, 99, 35);
 		panel_1.add(textUser_4);
 		
 		JLabel lblLogo_4 = new JLabel("");
-		lblLogo_4.setBounds(384, 11, 70, 65);
+		lblLogo_4.setBounds(264, 11, 70, 65);
 		Image img_add_4 = new ImageIcon(this.getClass().getResource("/avt.png")).getImage();
 		Image scaledAdd_4 = img_add_4.getScaledInstance(70, 65, Image.SCALE_SMOOTH);
 		panel_1.add(lblLogo_4);
@@ -189,23 +175,23 @@ public class JavaLanding extends JFrame {
 		JLabel lblRequest = new JLabel("Message Request (10)");
 		lblRequest.setForeground(new Color(30, 144, 255));
 		lblRequest.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		lblRequest.setBounds(355, 174, 153, 14);
+		lblRequest.setBounds(200, 174, 153, 14);
 		contentPane.add(lblRequest);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel_2.setBackground(new Color(255, 255, 255));
-		panel_2.setBounds(10, 199, 501, 245);
+		panel_2.setBounds(10, 199, 349, 245);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
 		JLabel User_1 = new JLabel("");
-		User_1.setBounds(10, 31, 70, 70);
+		User_1.setBounds(10, 43, 70, 70);
 		Image img_user1 = new ImageIcon(this.getClass().getResource("/avt.png")).getImage();
 		Image scaledUser_1 = img_user1.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
 		
 		JLabel Green = new JLabel("");
-		Green.setBounds(60, 200, 15, 15);
+		Green.setBounds(65, 185, 15, 15);
 		Image img_userG = new ImageIcon(this.getClass().getResource("/active.png")).getImage();
 		Image scaledUser_G = img_userG.getScaledInstance(15, 15, Image.SCALE_SMOOTH);
 		panel_2.add(Green);
@@ -217,7 +203,7 @@ public class JavaLanding extends JFrame {
 		txtConvo.setBorder(null);
 		txtConvo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		txtConvo.setText("Allan Muray");
-		txtConvo.setBounds(90, 44, 100, 20);
+		txtConvo.setBounds(90, 56, 100, 20);
 		panel_2.add(txtConvo);
 		txtConvo.setColumns(10);
 		
@@ -226,7 +212,7 @@ public class JavaLanding extends JFrame {
 		txtAssaf.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtAssaf.setColumns(10);
 		txtAssaf.setBorder(null);
-		txtAssaf.setBounds(90, 62, 331, 20);
+		txtAssaf.setBounds(90, 74, 244, 20);
 		panel_2.add(txtAssaf);
 		
 		txtAug = new JTextField();
@@ -234,11 +220,11 @@ public class JavaLanding extends JFrame {
 		txtAug.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		txtAug.setColumns(10);
 		txtAug.setBorder(null);
-		txtAug.setBounds(421, 26, 70, 20);
+		txtAug.setBounds(269, 38, 70, 20);
 		panel_2.add(txtAug);
 		
 		JLabel User_2 = new JLabel("");
-		User_2.setBounds(10, 144, 70, 70);
+		User_2.setBounds(10, 137, 70, 70);
 		Image img_user2 = new ImageIcon(this.getClass().getResource("/attr.png")).getImage();
 		Image scaledUser_2 = img_user2.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
 		panel_2.add(User_2);
@@ -249,7 +235,7 @@ public class JavaLanding extends JFrame {
 		txtConvo_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		txtConvo_1.setColumns(10);
 		txtConvo_1.setBorder(null);
-		txtConvo_1.setBounds(90, 157, 100, 20);
+		txtConvo_1.setBounds(90, 150, 100, 20);
 		panel_2.add(txtConvo_1);
 		
 		txtHeyImWaiting = new JTextField();
@@ -257,7 +243,7 @@ public class JavaLanding extends JFrame {
 		txtHeyImWaiting.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtHeyImWaiting.setColumns(10);
 		txtHeyImWaiting.setBorder(null);
-		txtHeyImWaiting.setBounds(90, 175, 374, 20);
+		txtHeyImWaiting.setBounds(90, 168, 244, 20);
 		panel_2.add(txtHeyImWaiting);
 		
 		txtActiveNow = new JTextField();
@@ -265,26 +251,36 @@ public class JavaLanding extends JFrame {
 		txtActiveNow.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		txtActiveNow.setColumns(10);
 		txtActiveNow.setBorder(null);
-		txtActiveNow.setBounds(389, 157, 86, 20);
+		txtActiveNow.setBounds(253, 150, 86, 20);
 		panel_2.add(txtActiveNow);
 		
 		JLabel Msg = new JLabel("");
-		Msg.setBounds(462, 49, 15, 15);
+		Msg.setBounds(310, 61, 15, 15);
 		Image img_userM = new ImageIcon(this.getClass().getResource("/cycle.png")).getImage();
 		Image scaledUser_M = img_userM.getScaledInstance(15, 15, Image.SCALE_SMOOTH);
 		panel_2.add(Msg);
 		Msg.setIcon(new ImageIcon(scaledUser_M));
 		
+		JLabel layer = new JLabel("");
+		layer.setBorder(null);
+		layer.setBounds(0, 124, 349, 84);
+		panel_2.add(layer);
+		
+		JLabel layer1 = new JLabel("");
+		layer1.setBorder(null);
+		layer1.setBounds(0, 28, 349, 91);
+		panel_2.add(layer1);
+		
 		
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(240, 240, 240));
-		panel_3.setBounds(10, 444, 501, 45);
+		panel_3.setBounds(10, 444, 349, 45);
 		contentPane.add(panel_3);
 		panel_3.setLayout(null);
 		
 		JLabel lblChat = new JLabel("");
-		lblChat.setBounds(81, 0, 50, 30);
+		lblChat.setBounds(45, 0, 50, 30);
 		Image img_chat = new ImageIcon(this.getClass().getResource("/num.jpg")).getImage();
 		Image scaledUser_C = img_chat.getScaledInstance(40, 20, Image.SCALE_SMOOTH);
 		panel_3.add(lblChat);
@@ -295,12 +291,12 @@ public class JavaLanding extends JFrame {
 		txtChats.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtChats.setBorder(null);
 		txtChats.setText("Chats");
-		txtChats.setBounds(81, 25, 50, 20);
+		txtChats.setBounds(45, 25, 50, 20);
 		panel_3.add(txtChats);
 		txtChats.setColumns(10);
 		
 		JLabel lblChat_1 = new JLabel("");
-		lblChat_1.setBounds(232, 0, 50, 30);
+		lblChat_1.setBounds(144, 0, 50, 30);
 		Image img_chat_1 = new ImageIcon(this.getClass().getResource("/call.png")).getImage();
 		Image scaledUser_C_1 = img_chat_1.getScaledInstance(40, 20, Image.SCALE_SMOOTH);
 		panel_3.add(lblChat_1);
@@ -312,11 +308,11 @@ public class JavaLanding extends JFrame {
 		textCall.setColumns(10);
 		textCall.setBorder(null);
 		textCall.setBackground(SystemColor.control);
-		textCall.setBounds(242, 25, 33, 20);
+		textCall.setBounds(154, 25, 33, 20);
 		panel_3.add(textCall);
 		
 		JLabel lblChat_2 = new JLabel("");
-		lblChat_2.setBounds(377, 0, 50, 30);
+		lblChat_2.setBounds(241, 0, 50, 30);
 		Image img_chat_2 = new ImageIcon(this.getClass().getResource("/people.png")).getImage();
 		Image scaledUser_C_2 = img_chat_2.getScaledInstance(40, 20, Image.SCALE_SMOOTH);
 		panel_3.add(lblChat_2);
@@ -328,7 +324,7 @@ public class JavaLanding extends JFrame {
 		textField_1.setColumns(10);
 		textField_1.setBorder(null);
 		textField_1.setBackground(SystemColor.control);
-		textField_1.setBounds(377, 25, 50, 20);
+		textField_1.setBounds(241, 25, 50, 20);
 		panel_3.add(textField_1);
 		
 		

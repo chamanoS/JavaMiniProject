@@ -155,7 +155,11 @@ public class JavaLogin extends JFrame {
 	            if (resultSet.next()) {
 	                // Successful login
 	                JOptionPane.showMessageDialog(null, "Login successful!");
-	                
+	                JavaLanding landingPage = new  JavaLanding();
+	                landingPage.setVisible(true);
+
+	                // Close the login page if needed
+	                JavaLogin.this.dispose();
 	            } else {
 	                // Invalid login
 	                JOptionPane.showMessageDialog(null, "Invalid username or password. Please try again.");

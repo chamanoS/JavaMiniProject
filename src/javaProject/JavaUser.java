@@ -11,10 +11,12 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
+import javax.swing.JTextField;
 
 public class JavaUser extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField1;
 
 	/**
 	 * Launch the application.
@@ -104,5 +106,10 @@ public class JavaUser extends JFrame {
 		Image scaledSend = img_send.getScaledInstance(40, 30, Image.SCALE_SMOOTH);
 		panel_1.add(lblSend);
 		lblSend.setIcon(new ImageIcon(scaledSend));
+		
+		textField1 = new JTextField();
+		textField1.setBounds(25, 90, 282, 39);
+		contentPane.add(textField1);
+		textField1.setColumns(10);
 	}
 }
