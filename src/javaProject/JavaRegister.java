@@ -171,10 +171,7 @@ public class JavaRegister extends JFrame {
         String password = txtPsw.getText();
 
         try {
-            // Load the MySQL JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
-
-            // Replace the following with your actual database connection details
+         
             String url = "jdbc:mysql://localhost:3306/loginuser";
             String user = "root";
             String passwords = "sc7431560IT$";
@@ -199,7 +196,7 @@ public class JavaRegister extends JFrame {
 
             JOptionPane.showMessageDialog(null, "User registered successfully!");
 
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }

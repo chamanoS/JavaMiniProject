@@ -19,6 +19,11 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class JavaLogin extends JFrame {
 
@@ -85,18 +90,6 @@ public class JavaLogin extends JFrame {
 		panel_1.add(txtPassword);
 		txtPassword.setColumns(10);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.DARK_GRAY);
-		panel.setBounds(186, 401, 250, 50);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel pnlLoginBtn = new JLabel("Log In");
-		pnlLoginBtn.setForeground(Color.WHITE);
-		pnlLoginBtn.setFont(new Font("Arial", Font.BOLD, 18));
-		pnlLoginBtn.setBounds(97, 11, 99, 30);
-		panel.add(pnlLoginBtn);
-		
 		JLabel pnlExit = new JLabel("X");
 		pnlExit.setForeground(Color.WHITE);
 		pnlExit.addMouseListener(new MouseAdapter() {
@@ -118,5 +111,64 @@ public class JavaLogin extends JFrame {
 		contentPane.add(pnlLogo);
 		pnlLogo.setIcon(new ImageIcon(img_logo));
 		setLocationRelativeTo(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.DARK_GRAY);
+		panel.setBounds(186, 401, 250, 50);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel pnlLoginBtn = new JLabel("Log In");
+		pnlLoginBtn.setForeground(Color.WHITE);
+		pnlLoginBtn.setFont(new Font("Arial", Font.BOLD, 18));
+		pnlLoginBtn.setBounds(97, 11, 99, 30);
+		panel.add(pnlLoginBtn);
+		
+		pnlLoginBtn.addMouseListener(new MouseAdapter(){
+			 public void mouseClicked(MouseEvent e) {
+	                loginFunction();
+	            }
+		});
 	}
+	private void loginFunction() {
+		
+		String username = txtUsername.getText();
+		String password = txtPassword.getText();
+		
+		try {
+			
+			    String url = "jdbc:mysql://localhost:3306/loginuser";
+	            String user = "root";
+	            String passwords = "sc7431560IT$";
+
+	            Connection connection = DriverManager.getConnection(url, user, passwords);
+	            
+	            // Create a SQL query to check if the provided user_name and password match
+	            String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+	            PreparedStatement preparedStatement = connection.prepareStatement(query);
+	            preparedStatement.setString(1, username);
+	            preparedStatement.setString(2, password);
+
+	            // Execute the query
+	            ResultSet resultSet = preparedStatement.executeQuery();
+
+	            if (resultSet.next()) {
+	                // Successful login
+	                JOptionPane.showMessageDialog(null, "Login successful!");
+	                
+	            } else {
+	                // Invalid login
+	                JOptionPane.showMessageDialog(null, "Invalid username or password. Please try again.");
+	            }
+
+	            // Close the database connection
+	            resultSet.close();
+	            preparedStatement.close();
+	            connection.close();
+	            
+		}catch (SQLException ex) {
+	            ex.printStackTrace();
+	            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+	        }
+}
 }
