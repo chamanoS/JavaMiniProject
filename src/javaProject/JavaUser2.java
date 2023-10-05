@@ -1,25 +1,21 @@
 package javaProject;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Image;
-import javax.swing.JTextField;
-import javax.swing.JSplitPane;
 
-public class JavaUser extends JFrame {
+public class JavaUser2 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField1;
-	private JTextField textField;
-	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -28,7 +24,7 @@ public class JavaUser extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JavaUser frame = new JavaUser();
+					JavaUser2 frame = new JavaUser2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +36,7 @@ public class JavaUser extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JavaUser() {
+	public JavaUser2() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 550);
@@ -63,7 +59,7 @@ public class JavaUser extends JFrame {
 		lblArrow.setBounds(20, 11, 25, 41);
 		panel.add(lblArrow);
 		
-		JLabel lblName = new JLabel("Wade Warren");
+		JLabel lblName = new JLabel("Jude Brown");
 		lblName.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblName.setBounds(54, 11, 161, 24);
 		panel.add(lblName);
@@ -76,12 +72,12 @@ public class JavaUser extends JFrame {
 		
 		JLabel lblMainUser = new JLabel("");
 		lblMainUser.setBounds(330, 6, 75, 50);
-		Image img_user = new ImageIcon(this.getClass().getResource("/avt.png")).getImage();
-		Image scaledUser_C_1 = img_user.getScaledInstance(75, 60, Image.SCALE_SMOOTH);
+		Image img_user = new ImageIcon(this.getClass().getResource("/avtr.png")).getImage();
+		Image scaledUser = img_user.getScaledInstance(75, 60, Image.SCALE_SMOOTH);
 		panel.add(lblMainUser);
-		lblMainUser.setIcon(new ImageIcon(scaledUser_C_1));
+		lblMainUser.setIcon(new ImageIcon(scaledUser));
 		
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(10, 476, 430, 63);
@@ -102,17 +98,17 @@ public class JavaUser extends JFrame {
 		panel_1.add(lblSend);
 		lblSend.setIcon(new ImageIcon(scaledSend));
 		
-		textField = new JTextField();
+		JTextField textField = new JTextField();
 		textField.setBounds(65, 11, 310, 41);
 		panel_1.add(textField);
 		textField.setColumns(10);
 		
-		textField1 = new JTextField();
+		JTextField textField1 = new JTextField();
 		textField1.setBounds(116, 187, 240, 39);
 		contentPane.add(textField1);
 		textField1.setColumns(10);
 		
-		textField_1 = new JTextField();
+		JTextField textField_1 = new JTextField();
 		textField_1.setBounds(102, 326, 203, 39);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
@@ -141,4 +137,5 @@ public class JavaUser extends JFrame {
 		contentPane.add(imgHolder);
 		imgHolder.setIcon(new ImageIcon(scaledSendy));
 	}
+
 }
